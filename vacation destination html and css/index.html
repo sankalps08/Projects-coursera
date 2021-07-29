@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Destinations WishList</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+	<!-- Our CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+    <h1>Vaccation Destination WishList</h1>
+    <p>Found excited places to visit on your next Vaccation? Use the form below to add them to your WishList</p>
+    </header>
+
+    <main>
+        <form method="post" id="convert">
+            <fieldset style="padding: 20px;" > 
+                <label for="places" > Destination Place : </label><br>
+        	    <input type="text" name = "placename" id="places" placeholder="Enter your destination" required> <br><br>
+
+                <label for="locations" > Location : </label><br>
+        	    <input type="text" name = "locaname" id="locations" placeholder="Enter your location" required> <br><br>
+
+                <label for="photos" > Photo : </label><br>
+        	    <input type="url" name = "name" id="photos" placeholder="Enter your Url here for photo" > <br><br>
+
+                <label for="describe" > Description : </label><br>
+        	    <textarea name="message" rows ="3" cols="22"name = "describe" id="discribe" placeholder="Where is it located ?" required></textarea> <br><br>
+                <button type="submit">Add to WishList</button>
+            </fieldset>
+        </form>
+    <article>
+        <h2 id="tittle">Enter Desitination Details</h2>
+        <div class="card">
+            <!--the content is generated my JS--> 
+            
+        
+        </div>
+    </article>
+    </main>
+    <!-- Our JavaScript -->
+    <script>
+        // adding event handler
+        const formhandle = document.querySelector('#convert');
+        formhandle.addEventListener('submit',handleform);
+        function handleform(event){
+            event.preventDefault();
+            // Extracting values from form
+            const placefwhishlist = event.target.elements['places'].value;
+            const locationfwhishlist = event.target.elements['locations'].value;
+            const imagefwhishlist = event.target.elements['photos'].value;
+            const descriptionfwhishlist = event.target.elements['discribe'].value;
+
+            //clear out form fields
+
+            for (let i=0 ; i < formhandle.length ; i++)
+            {
+                formhandle.elements[i].value = "";
+            }
+            // add the cards 
+            const createnewcardt = createnew(placefwhishlist,locationfwhishlist,imagefwhishlist,descriptionfwhishlist);
+            console.log(createnewcardt);
+            //change the header the the top of the list
+            const whishlistname = document.querySelector('.card');
+            console.log(whishlistname);
+            if (whishlistname.children.length===0)
+            {
+                document.getElementById('tittle').innerHTML = "My Whishlist";
+            }
+            // add the cards 
+            document.querySelector('.card').appendChild(createnewcardt);
+            //run a function that creates a new card 
+
+            function createnew(name,Location,photourl,describe){
+
+                const cardcon = document.createElement("div");
+                cardcon.className = "container";
+
+                const imgs = document.createElement('img');
+                imgs.setAttribute('alt', name);
+
+                const defaultphoto = 'images/signpost.jpg';
+
+                if(photourl.length === 0){
+                    imgs.setAttribute('src',defaultphoto);
+                }
+                else {
+                    imgs.setAttribute('src',photourl);
+                }
+
+                cardcon.appendChild(imgs);
+
+                const conatiners = document.createElement('div')
+                conatiners.className = "card-container";
+
+                const heading = document.createElement('h3');
+                heading.innerText = name ;
+                conatiners.appendChild(heading);
+
+                const nextheading = document.createElement('h4');
+                nextheading.innerText = Location;
+                conatiners.appendChild(nextheading);
+
+            
+                if (describe.length  !== 0){
+
+                const describedest = document.createElement('p');
+                describedest.className = "card-text";
+                describedest.innerText = describe;
+                conatiners.appendChild(describedest);
+
+                }
+
+                const buttondel = document.createElement("button");
+                buttondel.innerText = "Remove";
+
+                buttondel.addEventListener('click',removeDelbutton);
+                
+                    conatiners.appendChild(buttondel);
+                
+
+                cardcon.appendChild(conatiners);
+
+                return cardcon;
+            }
+
+            function removeDelbutton (event){
+                const card = event.target.parentElement.parentElement;
+                card.remove();
+            }
+            
+
+        }
+    </script>
+</body>
+
+</html>

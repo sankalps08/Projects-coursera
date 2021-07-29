@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY FILE FOR PROJECT</title>
+    <style>
+        .blue{color : blue}
+        .box{
+            width: 60px;
+            height: 28px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="BSM"> Java Script Basic Challange </h1>
+    <h2 class="DOM"> javascript using DOM </h2>
+
+    <ol id="INFO">
+        <li class="BS"> Baseline </li>
+        <li> learning asap  </li>
+        <li class="DOM"> document object model </li>
+        <li> Using javascript for making web pages more intractive </li><br>
+        
+    </ol>
+<!-- <div id="HELL">
+    <p>THIS paragraph will help you to change things using javascript</p>
+    </div> -->
+    <div>
+    <p id="SS">this is the second paragraph for using to make changes in javascript</p>
+    <p> and this will help you out sometimes but is not that much neccessary</p>
+    <P>IF you press this maybe you will <b>LIVE</b> <i>BUT</i>if you don't you will <b>DIE</b></P><br>
+    <br>
+    
+</div>
+
+    <form method="get" class="gty">
+      <!--   <label>Your name please enter : <input type="text" name="name"></label>
+        <input type="submit"> -->
+        <label >Enter the number :<input type="text" > </label>
+        <input type="submit" value="send number" > 
+    </form>
+    <a href="C:\Users\Sankalp Sharma\Desktop\hw\WhatsApp Image 2021-05-15 at 3.22.37 PM.jpeg" target="_blank">LINK TO ME </a>
+    <button>DON'T PRESS ME </button><br>
+    <button id="h">remve paragraph </button>
+
+    <h2>Roll over this box</h2>
+    <div class="box"></div>
+    
+   <script>
+                    //27
+                    const h1Tag = document.getElementsByClassName("BSM");
+                    console.log(h1Tag)
+                    var btn = document.querySelector('.gty');
+
+
+                    btn.addEventListener('submit',function(event){
+                        event.preventDefault();
+                        const myNum = parseInt(document.querySelector('input').value);
+                        console.log(myNum);
+                        
+                        if(myNum){
+                            h1Tag.style.fontSize = myNum + "px" ;
+                            
+                        }
+                        else{
+                            alert("Please enter a number");
+                        }
+                    });
+
+
+
+
+                    //challange 25
+                    /* const divto = document.querySelector('div');
+                    const btn = document.querySelectorAll('button')[0];
+                    const btnnew = document.querySelector('#h');
+                    
+                    btn.addEventListener('click',function(){
+                        
+                               const addd = document.createElement('p');
+                               const textadd= document.createTextNode(' here is new')
+                                addd.appendChild(textadd);
+                                divto.appendChild(addd);
+                        });
+                    btnnew.addEventListener('click',function(){
+
+                            const para = document.querySelectorAll('p');
+                            divto.removeChild(divto.children[para.length-1]);
+
+                        }); */
+                            
+                    //challange 24
+                    /* const pressmenigga = document.querySelector('div');
+                    const btn = document.querySelector('button');
+                    btn.addEventListener('click',function(event){
+                        {
+                               const addd = document.createElement('p');
+                               const textadd= document.createTextNode('Here is the new paragraph')
+                                addd.appendChild(textadd);
+                                pressmenigga.appendChild(addd)
+                        }
+                        
+                    }) ; */
+                    //challange 23
+                   /*  const pressme = document.querySelectorAll('p');
+                    const btn = document.querySelector('button');
+                    btn.addEventListener('click',function(){
+                        for(let i=0 ; i< pressme.length; i++)
+                        {
+                                
+                                pressme[i].style.color = "red";
+                        }
+                        
+                    }) ; */
+                    //challange 22
+                    /* const pressme = document.querySelector('p');
+                    const btn = document.querySelector('button');
+                    btn.addEventListener('click',function(){
+                         
+                                pressme.style.color = "red";
+                        
+                        
+                    }) ; */
+                   
+
+                    // adding slideshow in JS , file is index.html
+
+
+                    //key down event
+                    /* document.addEventListener('keydown',function(e){
+                        alert(`the ${e.key} key is pressed`);
+                    });
+                    */
+
+                    //window resizing
+                   /*  window.addEventListener('resize',function(){
+                        console.log(`window Width is ${window.innerWidth}`);
+                        console.log(`window Height is ${window.innerHeight}`);
+                    }); */
+
+                    // scrolll event
+                   /*  var pagetop;
+                    
+                    window.addEventListener('scroll', function(){
+                        pagetop = window.pageXOffset;
+                        var roundoff= Math.floor(pagetop);
+                        console.log(roundoff);
+                    }); */
+
+
+
+                    // moueover, moueout event 
+                    /* var heading = document.querySelector('h2');
+                    var box = document.querySelector('div');
+
+                    box.addEventListener('mouseover', function(){
+                        heading.innerHTML= "the mouse is over the box"
+                    });
+                    
+                    box.addEventListener('mouseout', function(){
+                        heading.innerHTML="the mouse left the box";
+                    });
+
+                    heading.addEventListener('mouseover', function(){
+                        heading.innerHTML="Roll your mouse over the box";
+                    }); */
+
+                    // Submit event (like forms)
+                    /* var myform= document.querySelector('form')
+                    myform.addEventListener('submit',function(e){
+                        e.preventDefault();
+
+                        var formdata = document.querySelector('input').value;
+
+                        alert(formdata);
+                    })  */
+
+
+                    //Prevent default behavior
+                   /*  var link = document.querySelector('a');
+                    link.addEventListener('click',function(e){
+                        alert('dont open my photo or i will kill you');
+                        e.preventDefault();
+                    }); */
+
+                    // Event object 
+                    /* var btn=document.querySelector('button');
+                    btn.addEventListener("click",function(event){
+                        event.target.style.backgroundColor="yellow";
+                        event.target.style.fontSize="20px";
+                        alert('told you not to open this ');
+                    });
+ */
+
+
+                    // most common syntax for event listner
+                    /* var btn=document.querySelector('button');
+                    btn.addEventListener("click",function(){
+                            alert('told you not to open this ');
+                    });
+ */
+
+                    // Event listner
+                    /* var btn=document.querySelector('button');
+                    function event(){
+                        alert('Told you not to press');
+                    }
+                    btn.addEventListener('click',event); */
+
+                    // Events
+                    /* var evntlisten = document.querySelector('button'); 
+                    evntlisten.onclick=function(){
+                        alert('Told you not to press'); */
+                    
+                    
+                //how to remove something from a html using javascript
+             /*    var removetext=document.querySelector('div');
+                removetext.removeChild(removetext.children[2]); */
+
+
+                // how to create element and text node or anythink 
+               /*  var addtext= document.createElement ('a')
+                var linkadd= document.createTextNode('link for something');
+                addtext.href='https://www.w3schools.com/js/default.asp';
+                addtext.appendChild(linkadd);
+                document.querySelector('div').appendChild(addtext); */
+
+                // how to set attribute in javascript using set attribute method
+                /* var mytext =document.querySelector('a').setAttribute('target','_top'); */
+
+                // how make a class to change element or classes using classname in javascript
+                /* var mytext =document.querySelector('p').className ='blue'; */
+
+                // how to use inner html and add tags in you html and removing what we have using javascript
+               /*  var mytext =document.querySelector('#HELL').innerHTML="<p>this is the new paragraph i want to add on my webpage </p>"; */
+
+                // how to use queryselector all you can make changes in tags by using this
+               /*  var mytext =document.querySelectorAll("#HELL a");
+                for (var i=0; i < mytext.length; i++)
+                {
+                mytext[i].style.color="red";
+                alert(`this no of class is going to change is  class[${i}]`)
+                } */
+                //query selector , it will always choose the first thing and change that only
+                // and you can also use id and uske aandar ki class by using this
+                
+                /* var mytext =document.querySelector(' .DOM');
+                mytext.style.fontSize= "24px" ; */
+
+
+                //using getelementbyclass name
+               /*  var mytext =document.getElementsByClassName("DOM");
+                for (var i=0; i < mytext.length; i++)
+                {
+                mytext[i].style.color="red";
+                alert(`this no of class is going to change is  class[${i}]`)
+                } */
+
+                //using getelementbytagname 
+               /*   var mytext =document.getElementsByTagName("p")
+                
+                for (var i=0; i < mytext.length; i++)
+                {
+                    mytext[i].style.color="green";
+                    alert(`this is ${i}`);
+                }  */
+
+            /* how to use get element by tag 
+            document.getElementById("SS").style.color='GREEN'; */
+
+            // generating a random number 
+            // math.floor is used to make number a whole no 
+
+          /*   function random(min,max)
+            {
+                /* var randmnum=max-min+1;
+                const rmdi=Math.random();
+                const outpnum=randmnum*rmdi
+                const ltfnum=Math.floor(outpnum);
+                const finlnum=min+ltfnum; */
+                /* return  Math.floor((max-min+1)*Math.random())+min;
+
+            }
+            console.log(random(4,8));
+            */
+
+            // FUNCTIONS FOR YOU
+            /* function dostuff(message){
+                const text=' yes i know';
+                const texts= message;
+                return texts;
+            }
+            console.log(dostuff("you know this"));
+
+            function sum(n1,n2)
+            {
+                const sum=n1+n2;
+                return sum;
+            }
+            console.log(sum(2,8)); */
+
+
+
+
+             /*  
+               var color= prompt('enter color');
+               if (color=='red' || color=='RED' || color=='yellow' ||color=='YELLOW'|| color=='blue'||color=='BLUE')
+               {
+                   
+                   console.log(`you picked a primary color :  ${color}`);
+               }
+               else if(color==='orange' || color==='green' || color==='purple')
+               {
+                    console.log(`you picked a secondary color : ${color}`)
+               }
+               else
+                {
+                   console.log('you enter something else');
+               }
+ */
+              
+              
+              
+              
+              
+               /*  var name = prompt("what's your name ?", "");
+                console.log(`hello ${name} , and welcome !` ); */
+               /*  var name = prompt('enter the first name '+ ' and '+'  enter the last name');
+                var adjective = 'tall';
+                console.log(` we know ${name} you are very ${adjective}`); */
+                    
+          /*   /   function dostuff(){
+                    var mystring = "here is the message";
+                    var myuppercase = mystring.toUpperCase();
+                    
+                    console.log(mystring);
+                    console.log(myuppercase);
+                   
+
+                }
+             dostuff(); */
+
+                   /*  function checknum(){
+                        var enternum = prompt('enter the whole no ',' ');
+
+                        if(enternum<10)
+                    {
+                        console.log('you entered a no. less then 10')
+                    for (var i=0 ; i<10 ; i++){
+                        if(enternum==i){
+                        console.log(`here is your no. ${i} >-- this is the no. `);  
+                       }
+                        else{
+                            console.log(`here is your no. ${i}`);     
+                        } 
+                    }     
+                        
+                    }
+                        else if(enternum>9)
+                        {
+                            console.log('you enterned a big no.');
+                        }
+                        else{
+                            console.log('ERROR : you entered which is no a no .');
+                        }
+                    }
+                    checknum();  */
+        
+             /* var mystring="hey you scum bags";
+             var foods = ['banana','apple','grapes','orange']; */
+             
+               /*  for(var eachItem of foods)
+                {
+                    console.log(`${mystring} ${eachItem}`);
+                } */
+              
+            /*  for( var i=0; i < foods.length ;i++ )
+             {
+                 
+                var remainder=i%2;
+             if(remainder === 0)
+             {
+                var myupperstring= foods[i].toUpperCase();
+                console.log(`${mystring} ${myupperstring}`);
+                 
+             }
+             else{
+                console.log(`${mystring} ${foods[i]}`)
+             }
+             } */
+
+        /* var color = ["red", "green", "yellow", "blue"]; */
+
+                /* var mystring= 'Iam Really Hungary For Some ';
+                console.log(mystring);
+                var  reallylocation=mystring.search('Really');
+                console.log(reallylocation);
+                var theword=mystring.substr(reallylocation,6);
+                console.log(theword)
+                var myupperstring= theword.toUpperCase();
+                console.log(myupperstring);
+                var newstring = mystring.replace('Really',myupperstring );
+                console.log(newstring); */
+
+
+            /*  var i=0;
+            var text="";
+
+            while(i<10)
+            {
+                text+= `this is what i meant ${i} in bakchodi,and this is uska double ${i*2} \n` ;
+                i++;
+            }
+                console.log(text);  */
+/*              
+        for(var eachiten of color)
+        {
+            console.log(eachiten);
+        }
+
+ */
+
+
+        /* var mycoloris = color[i];   */
+       /*  for (var i = 0; i < 7; i++) { */
+            /*    console.log(color[i]);
+               console.log(false);
+            */
+           /*  if (i < color.length - 2) { */
+                /* console.log(color[i]); */
+               /*  console.log(color[i]);
+                console.log('good color present in array');
+            }
+            else if (i < color.length) {
+                console.log(color[i]);
+                console.log('present but not showing');
+            }
+            else { */
+                /*   console.log(color=[i]); */
+               /*  console.log("this color is not in array");
+            }
+        } */
+/**
+                          if (mycoloris=="red")
+                          {
+                              console.log("my color is red");
+                          }
+                          else if (mycoloris=="green")
+                          {
+                              console.log("my color is green");
+                          }
+                          else if (mycoloris=='yellow')
+                          {
+                              console.log("my color is yellow");
+                          }
+                         else if (mycoloris=='blue')
+                          {
+                              console.log("my color is blue");
+                          }
+                        else  {
+                            console.log("my color is chuttiya");
+                        }
+                **/
+        /*   switch(mycoloris)
+          {
+              case "red" : console.log("my color is red");
+              break;
+              case "green" : console.log("my color is green");
+              break;
+              case "yellow" : console.log("my color is yellow");
+              break;
+              case "blue" : console.log("my color is blue");
+              break;
+              default :console.log("my color is mindfuckingblowing");
+          }  */
+
+
+    </script>
+</body>
+
+</html>

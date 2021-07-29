@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Distance Converter</title>
+
+	<!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+	
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<h1>Miles to Kilometers Converter</h1>
+    
+    <div class="container top">
+    	<p>Type in a number of miles and click the button to convert the distance to kilometers.</p>
+        
+        <form method="post" action="somephpfile.php" id="convert">
+        
+        	<input type="text" name="distance" id="distance" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+    <div class="container bottom" id="answer">
+    	<h2 class="invisible">Answer goes here</h2>
+    </div>
+    
+    <p id="directions">Press the "K" key to switch to kilometer converstion, press the "M" key to switch to mile conversion</p>
+
+	<script>
+		let convertype = "miles";
+		const head = document.querySelector('h1');
+		const para = document.querySelector('p');
+		const form = document.getElementById('convert');
+		const answer = document.getElementById('answer');
+
+		document.addEventListener('keydown',function(event){
+			
+			var key = event.code;
+			
+			if( key ==='KeyK'){
+				convertype = "kilometers";
+				head.innerHTML = "Kilometers to Miles converter";
+				para.innerHTML = "<p>Type in a number of Kilometers and click the button to convert the distance to Miles</p>";
+			}
+			else if ( key ==='KeyM'){
+				convertype= "miles";
+				head.innerHTML = "Miles to Kilometers converter";
+				para.innerHTML = "<p>Type in a number of miles and click the button to convert the distance to Kilometers</p>";
+
+			}
+		});
+
+		document.addEventListener('submit',function(event){
+			event.preventDefault();
+			
+			const distnce = parseFloat(document.getElementById('distance').value)
+			const answer = document.getElementById('answer');
+	if (distance){
+			if(convertype=="miles"){
+				const convert = (distnce*1.61094).toFixed(3) ;
+				answer.innerHTML = `<h2> ${distnce} miles convert to ${convert} kilometers </h2>`;
+			}
+			else {
+				const convertktom = (distnce*0.62137).toFixed(4);
+				answer.innerHTML = `<h2>${distnce} Kilometers convert to ${convertktom} miles </h2>`;
+			}
+		}
+		else {
+				answer.innerHTML = "<h2>Please enter a Number !!</h2>"
+			}
+	
+	
+	
+	});
+
+
+
+	</script>
+</body>
+</html>
